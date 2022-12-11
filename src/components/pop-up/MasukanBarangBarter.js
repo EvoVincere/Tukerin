@@ -11,6 +11,8 @@ import PropTypes from 'prop-types';
 import { AiOutlinePlus } from 'react-icons/ai';
 import { GrFormClose } from 'react-icons/gr';
 import { useNavigate, useParams } from 'react-router-dom';
+// eslint-disable-next-line import/order
+import { toast } from 'react-toastify';
 
 function MasukanBarangBarter({
   filteredProducts, productDiajukan, productDitawar, setProductDiajukan, setProductDitawar,
@@ -66,6 +68,7 @@ function MasukanBarangBarter({
       })[0]]);
     }
     navigate('/transaction');
+    toast.success('Barang berhasil diajukan !');
   };
 
   // filteredProducts.filter((product) => {
