@@ -9,7 +9,7 @@ import {
   Routes, Route, Link, useSearchParams,
 } from 'react-router-dom';
 import AddUser from './AddUser';
-import { getUserLogged, putAccessToken } from '../utils/api-endpoint';
+import { getProducts, getUserLogged, putAccessToken } from '../utils/api-endpoint';
 import Popup from 'reactjs-popup';
 // Components
 import SearchBar from './SearchBar';
@@ -21,7 +21,6 @@ import RegisterPage from '../pages/RegisterPage';
 import LoginPage from '../pages/LoginPage';
 import AboutPage from '../pages/AboutPage';
 import FAQpage from '../pages/FAQpage';
-// import ContactForm from '../pages/HubungiKami';
 // Kategori
 import {
   Elektronik, FashionWanita, FashionPria, FashionAnak, MakananMinuman, Kecantikan, Hobi,
@@ -40,7 +39,6 @@ import '../styles/AddPage.css';
 import '../styles/NavbarResponsiv.css';
 import brandTukerin from '../images/brand-tukerin.png';
 import brandTukerinFooter from '../images/tukerin-removebg.png';
-import products from '../utils/data/products';
 // Icons
 import { BsFacebook, BsInstagram, BsTwitter } from 'react-icons/bs';
 import { FaCopyright } from 'react-icons/fa';
@@ -57,7 +55,7 @@ function App() {
 
   const [authedUser, setAuthedUser] = useState(JSON.parse(localStorage.getItem('AUTHED_USER')) || null);
 
-  const [publishedProducts, setPublishedProducts] = useState(JSON.parse(localStorage.getItem('PUBLISHED_PRODUCTS')) || products);
+  const [publishedProducts, setPublishedProducts] = useState(JSON.parse(localStorage.getItem('PUBLISHED_PRODUCTS')) || []);
 
   const [myProduct, setMyProduct] = useState(JSON.parse(localStorage.getItem('MY_PRODUCTS')) || []);
 
@@ -73,13 +71,6 @@ function App() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [keyword, setKeyword] = useState(() => searchParams.get('keywordSearch') || '');
 
-  // idb
-  // useEffect(() => {
-  //   (async () => {
-  //     await USER_DATABASE.putUser({ authedUser });
-  //   })();
-  // }, []);
-
   // fungsi untuk drawer hamburger
   const handleClose = () => {
     setActiveHam(!activeHam);
@@ -92,6 +83,15 @@ function App() {
     const { name } = data;
     setAuthedUser(name);
   };
+
+  const onLoad = async () => {
+    const data = await getProducts();
+    setPublishedProducts(data);
+  };
+
+  useEffect(() => {
+    onLoad();
+  }, []);
 
   useEffect(() => {
     localStorage.setItem('AUTHED_USER', JSON.stringify(authedUser));
