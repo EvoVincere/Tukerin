@@ -71,10 +71,18 @@ async function getUserLogged() {
   return { error: false, data: responseJson.data };
 }
 
+async function getProducts() {
+  const response = await fetch('https://63936390ab513e12c50cf96f.mockapi.io/Tukerin/products');
+  const responseJson = await response.json();
+
+  return responseJson;
+}
+
 export {
   getAccessToken,
   putAccessToken,
   login,
   register,
   getUserLogged,
+  getProducts,
 };
