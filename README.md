@@ -10,7 +10,9 @@ Project Resources:
 4. Framework: Bootstrap
 5. Library: React js
 6. Tools: npm, Github
-7. API: https://contact-api.dicoding.dev/v1
+7. API: 
+>https://contact-api.dicoding.dev/v1
+</br>https://63936390ab513e12c50cf96f.mockapi.io/Tukerin/products
 
 Presentation link:
 >https://youtu.be/bPnxS_0lNA4
