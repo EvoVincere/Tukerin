@@ -30,7 +30,7 @@ function BarangDitawar({
           <p>{description}</p>
         </div>
         <div className="transaction-item__body-action-pending">
-          <a className="button-tochat" href={`https://wa.me/${noWA}`} aria-label="hubungi whatsapp">
+          <a className="button-tochat" target="_blank" href={`https://wa.me/${noWA}`} aria-label="hubungi whatsapp" rel="noreferrer">
             <span>Hubungi di</span>
             {' '}
             <FaWhatsapp />

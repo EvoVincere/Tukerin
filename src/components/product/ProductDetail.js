@@ -45,7 +45,7 @@ function ProductDetail({
             setProductDitawar={setProductDitawar}
             authedUser={authedUser}
           />
-          <a href={`https://wa.me/${noWA}`} aria-label="hubungi whatsapp"><HubungiPemilikButton /></a>
+          <a target="_blank" href={`https://wa.me/${noWA}`} aria-label="hubungi whatsapp" rel="noreferrer"><HubungiPemilikButton /></a>
         </div>
       </div>
     </div>
