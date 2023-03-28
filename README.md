@@ -23,6 +23,9 @@ Demo link:
 Buku Panduan Penggunaan Tukerin:
 >https://docs.google.com/document/d/1VGFSQkZnFZ8nW6abNrRsAfgfn-eu7y25/edit?usp=sharing&ouid=112125282229079786847&rtpof=true&sd=true
 
+Deploy Link:
+>https://tukerinapp.netlify.app/
+
 Fitur yang belum selesai :
 1. Membedakan tampilan page transaksi untuk pemilik dan penawar barang
 
